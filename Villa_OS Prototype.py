@@ -29,7 +29,8 @@ def fetch_telemetry():
         risk = min(100, int(wind * 10))
         return temp, wind, hum, risk
     except Exception as e:
-        # Fallback values if API is propagating errors
+        # This will print the actual error message in your Streamlit Cloud Logs
+        st.error(f"Telemetry Error: {e}")
         return "N/A", "N/A", "N/A", 0
 
 
