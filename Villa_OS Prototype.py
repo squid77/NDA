@@ -6,7 +6,7 @@ import base64
 from datetime import datetime
 
 # --- CONFIGURATION & BRANDING ---
-# This MUST be the first Streamlit command called
+# This MUST be the first Streamlit command executed
 st.set_page_config(
     page_title="Nicoya Systems | Villa OS",
     layout="wide",
@@ -36,7 +36,7 @@ st.markdown("""
 
 # --- APP LOGIC ---
 st.title("⚡ NICOYA SYSTEMS | VILLA OS")
-st.subheader("Infrastructure Intelligence Registry")
+st.subheader("Infrastructure Intelligence Registry | Santa Teresa, CR")
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -46,4 +46,4 @@ with col2:
 with col3:
     st.markdown('<div class="metric-card"><h3>SYSTEM HEALTH</h3><h1>98.2%</h1></div>', unsafe_allow_html=True)
 
-st.write("Current Phase: Q3 Pilot Registry - Santa Teresa, CR")
+st.write(f"Telemetry Active as of: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
