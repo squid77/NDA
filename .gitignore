@@ -1,0 +1,10 @@
+# Local Environment
+.venv/
+__pycache__/
+.idea/
+
+# OS specific files
+.DS_Store
+
+# Telemetry / Build files
+*.pyc
