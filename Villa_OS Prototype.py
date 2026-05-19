@@ -16,7 +16,7 @@ st.set_page_config(
 def fetch_telemetry():
     try:
         # Pulling from Streamlit Secrets for Information Assurance
-        api_key = st.secrets["dec41d297d9b33771164bcb8e894ce6f"]
+        api_key = st.secrets["OPENWEATHER_API_KEY"]
         lat, lon = 9.6421, -85.1685  # Santa Teresa Coordinates
         url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
 
