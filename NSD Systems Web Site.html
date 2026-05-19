@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicoya Systems | Infrastructure Command</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Urbanist:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --accent: #deff9a; --bg: #0a0f1a; }
+        body { font-family: 'Urbanist', sans-serif; background-color: var(--bg); color: #f5f5f5; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        .mono { font-family: 'Space Mono', monospace; }
+        .grid-layer { position: fixed; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(222, 255, 154, 0.08) 1px, transparent 0); background-size: 30px 30px; z-index: -1; }
+        .hud-label { font-family: 'Space Mono', monospace; font-size: 11px; color: rgba(245, 245, 245, 0.4); text-transform: uppercase; }
+        .hud-data { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 14px; color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <div class="grid-layer"></div>
+
+    <div class="border-b border-white/5 bg-black/20 backdrop-blur-sm sticky top-0 z-50 px-6 py-4 flex justify-between items-center text-[10px] mono tracking-widest text-white/40">
+        <div>SYS_STATUS: // RUNNING</div>
+        <div class="flex items-center gap-6">
+            <div>LOC: 9.6421° N, 85.1685° W</div>
+            <div id="utc-time">00:00:00 UTC</div>
+        </div>
+    </div>
+
+    <header class="container mx-auto px-6 pt-24 pb-12 max-w-7xl">
+        <div class="mono text-xs text-[#deff9a] tracking-[0.6em] uppercase mb-4">Tactical Command Center</div>
+        <h1 class="text-7xl md:text-8xl font-black tracking-tighter uppercase italic line-height-[0.85]">
+            Nicoya Systems<br><span class="text-white/20">Villa OS</span>
+        </h1>
+        <p class="max-w-xl mt-8 text-white/50 text-lg leading-relaxed font-light">
+            Environmental data telemetry streaming directly from physical assets to predict aero-salinity structural risks across the Q3 Pilot Registry.
+        </p>
+    </header>
+
+    <section class="container mx-auto px-6 mb-24 max-w-7xl space-y-12">
+        <div class="border-b border-white/5 pb-4 flex justify-between items-end">
+            <h2 class="mono text-xs tracking-[0.4em] text-white/40 uppercase">Enrolled Nodes // Pilot Registry</h2>
+            <span class="mono text-xs text-[#deff9a]">01 / 20 ACTIVE</span>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 bg-white/5 rounded-lg overflow-hidden border border-white/5">
+                <img class="w-full object-cover opacity-80 filter brightness-90 contrast-110 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2000" alt="Node 01">
+            </div>
+            <div class="lg:col-span-5 space-y-10">
+                <div>
+                    <span class="hud-label tracking-[0.5em]">Node_ID: ST-01</span>
+                    <h3 class="text-4xl font-black italic uppercase mt-3 tracking-tighter">Structural Monolith</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/5 p-6 border-l-2 border-[#deff9a]">
+                        <div class="hud-label mb-2">Salt Index</div>
+                        <div class="hud-data text-red-500 italic">CRITICAL</div>
+                    </div>
+                    <div class="bg-white/5 p-6 border-l-2 border-[#deff9a]">
+                        <div class="hud-label mb-2">Status</div>
+                        <div class="hud-data italic">NOMINAL</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 mb-32 max-w-7xl">
+        <div class="border-b border-white/5 pb-4 mb-8 flex justify-between items-end">
+            <h2 class="mono text-xs tracking-[0.4em] text-white/40 uppercase">System Telemetry // Central Stream</h2>
+            <div class="flex items-center gap-2 mb-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[10px] mono text-emerald-500 tracking-widest">LIVE FEED</span>
+            </div>
+        </div>
+
+        <iframe
+            src="https://nicoya-systems-cr.streamlit.app/?embed=true"
+            width="100%"
+            height="450px"
+            style="border: none; background: transparent;">
+        </iframe>
+    </section>
+
+    <footer class="py-20 text-center border-t border-white/5">
+        <div class="mono text-[9px] text-white/20 tracking-[1.2em] uppercase">End of Transmission // Infrastructure Intelligence Hub</div>
+    </footer>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('utc-time').innerText = now.toISOString().split('T')[1].split('.')[0] + ' UTC';
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
